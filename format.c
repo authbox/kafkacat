@@ -243,14 +243,10 @@ static void fmt_msg_output_str (FILE *fp,
 
 		case KC_FMT_TIMESTAMP:
 		{
-#ifdef RD_KAFKA_TIMESTAMP_CREATE_TIME
 			rd_kafka_timestamp_type_t tstype;
 			r = fprintf(fp, "%"PRId64,
 				    rd_kafka_message_timestamp(rkmessage,
 							       &tstype));
-#else
-			r = fprintf(fp, "-1");
-#endif
 			break;
 		}
 		}
